@@ -1,0 +1,186 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="q=Wi{J=Oddp9.5N;qD.K">motoron</variable>
+<variable id="C!tQA(m+9.)ZnH}|L;vq">minspeed</variable>
+<variable id="4RW;w.qg`ymZel[u~vm8">test</variable>
+<variable id="?R[FMDI;0={3Hh=rH{I{">test2</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="-19" y="208">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="]v#^ImIu;.:cI]B]ru{}">
+<field name="VAR" id="q=Wi{J=Oddp9.5N;qD.K">motoron</field>
+<value name="VALUE">
+<block type="logic_boolean" id="?!~K1(pSq~*=!V2:lU)b">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="/][],Afur6y|Q[S(Vj(B">
+<field name="VAR" id="C!tQA(m+9.)ZnH}|L;vq">minspeed</field>
+<value name="VALUE">
+<block type="math_number" id="!Abf{Ye3[^9u|Z{)YJcO">
+<field name="NUM">300</field>
+</block>
+</value>
+<next>
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="controls_if" id="VYJY/%(~V:{3y1-}n@na">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=":nfUQC}e`jwmgacD=gp8">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">BWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="[H#/dhST~g~*6nh;:urL">
+<field name="VAR" id="q=Wi{J=Oddp9.5N;qD.K">motoron</field>
+<value name="VALUE">
+<block type="logic_negate" id=":,)ptyKyND#XmP,]Od_;">
+<value name="BOOL">
+<block type="variables_get" id="tn^P%.~sqIMzMYJVrGKz">
+<field name="VAR" id="q=Wi{J=Oddp9.5N;qD.K">motoron</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id=":3`|ftR?%YU4W#.}Sh7k">
+<mutation else="1"/>
+<value name="IF0">
+<block type="variables_get" id="8-fO;nITWF?{QlV:m.8p">
+<field name="VAR" id="q=Wi{J=Oddp9.5N;qD.K">motoron</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id=".`]shd6t)UCyY%a-W.J|">
+<field name="IDENTIFIER">_99_nights_gunAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"99_nights_gun"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="X,m3g6@EN;u7$#:x:Lb!">
+<field name="NUM">-1750</field>
+</shadow>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id=":;(X:}L#2^6t!xmlbYSP">
+<field name="IDENTIFIER">_99_nights_gunAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"99_nights_gun"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="/[2E^![19W3nINXl)wkv">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="variables_set" id="~^t(wrEiNzrDt|3`wHCW">
+<field name="VAR" id="4RW;w.qg`ymZel[u~vm8">test</field>
+<value name="VALUE">
+<block type="dcMotor_getProperty_Number" id="vSP|]5W8E}jvf-w[/Zo$">
+<field name="IDENTIFIER">_99_nights_gunAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"99_nights_gun"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="VpKgk~ax;!EhzP~CGT|U">
+<field name="VAR" id="?R[FMDI;0={3Hh=rH{I{">test2</field>
+<value name="VALUE">
+<block type="dcMotor_getProperty_Number" id=")Hb1Ppj-Kj:P]V82)pH/">
+<field name="IDENTIFIER">_99_nights_gunAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"99_nights_gun"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id=",vG*2?AC/U[1qtiK?Q4t">
+<value name="KEY">
+<shadow type="text" id="Nc{)(;G3w49m|z7,~=5v">
+<field name="TEXT">motorVelocity</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="Nk,ZGPp?iG.9`S[iQOBo">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="}4.Vhj|y3Ki|tEtr%|1K">
+<field name="VAR" id="4RW;w.qg`ymZel[u~vm8">test</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="4;Js)EsAtfJuD!yN9z=@">
+<value name="KEY">
+<shadow type="text" id="~fn*.u/TsrYM*,i%E-ZA">
+<field name="TEXT">MotorPower</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="7vJo!JmqgcW^Ub/c4ocH">
+<field name="VAR" id="?R[FMDI;0={3Hh=rH{I{">test2</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>

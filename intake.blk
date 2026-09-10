@@ -1,0 +1,154 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="%psRIUry{ztv,m^r(H/%">intake_power</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="25" y="169">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="variables_set" id=")PUUM_|.{H{+rHx6n*;N">
+<field name="VAR" id="%psRIUry{ztv,m^r(H/%">intake_power</field>
+<value name="VALUE">
+<block type="math_number" id="=]=ZX).eq,8A{S:(V)g3">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="z:@wtxRw*G9p(m[f7vq2">
+<field name="IDENTIFIER">vroomvroomchuteAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"vroomvroomchute"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="mMg0}JM~fYF@e/c#3vf9">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id=";tQur:v9kw7sTn;Y}!it">
+<field name="IDENTIFIER">intakeMOtorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"intakeMOtor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="`(FX9iOf[${r;8_m=s]s">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="dcMotor_setProperty_Number" id="^7?@OM,*T`ssMq2W1l.^">
+<field name="IDENTIFIER">vroomvroomchuteAsDcMotor</field>
+<field name="PROP">Velocity</field>
+<data>{"IDENTIFIER":"vroomvroomchute"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="-M22sT2%G@_+|6yhX,/H">
+<field name="NUM">1500</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="{5XYMs.rq#q90rf*~EJo">
+<field name="IDENTIFIER">intakeMOtorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"intakeMOtor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="|Y[bnGHG^xR5z7o0)5r:">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="3!e0s?pQRw}1bo%6+W)l">
+<field name="VAR" id="%psRIUry{ztv,m^r(H/%">intake_power</field>
+</block>
+</value>
+<next>
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="controls_if" id="UyK0jD@DqmN_YNDfN:=A">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="ZQN#aM*xGueMpRmu9T!-">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">XWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="vRa7?eFK]zp?wis_guwh">
+<field name="VAR" id="%psRIUry{ztv,m^r(H/%">intake_power</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="u]EU0^Ar:;4Oov![qs[T">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="Wlf=H*zH(:l0vCEw!C}u">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="mGFCRSs!Ua!zaeC0.8h0">
+<field name="VAR" id="%psRIUry{ztv,m^r(H/%">intake_power</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="@/7+0|K$2c0?IBl=6X~r">
+<field name="NUM">-1</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="variables_set" id="cB^Yg8QG23;H=OdpcPQ+" x="356" y="545">
+<field name="VAR" id="%psRIUry{ztv,m^r(H/%">intake_power</field>
+<value name="VALUE">
+<block type="math_number" id="Q46did~dKo$teTwC%Jn+">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>

@@ -1,0 +1,193 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="GmD{:sA3zz#G1OHy5QNu">forwardpower</variable>
+<variable id="eypF,4~hcuC2(L$t@95K">turnpower</variable>
+<variable id="-YT1.V~0oUZK7m$]c09#">leftpower</variable>
+<variable id=")rHRu=}P,cEJh1,^5~h.">rightpower</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="25" y="169">
+<field name="NAME">runOpMode</field>
+<comment pinned="true" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="procedures_callnoreturn" id="=V@P8n8}bXaa=4^9=_:7">
+<mutation name="drive_control"/>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="9xof{q*C(V21dx{%aSG," x="393" y="198">
+<field name="NAME">drive_control</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="variables_set" id="`GXj|Hh?DcXKF2ljb6P3">
+<field name="VAR" id="GmD{:sA3zz#G1OHy5QNu">forwardpower</field>
+<value name="VALUE">
+<block type="gamepad_getProperty_Number" id="8vGI@?QQQA[*7pl!z,ey">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="IGt|NV7`T/Lh(lguWuH@">
+<field name="VAR" id="eypF,4~hcuC2(L$t@95K">turnpower</field>
+<value name="VALUE">
+<block type="gamepad_getProperty_Number" id="%+%)9iivkDcgr]O{9H]l">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="(K@?+2%.5AM|IgjmC)HY">
+<field name="VAR" id="-YT1.V~0oUZK7m$]c09#">leftpower</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="bKLQE`-BvkR(vxfU3N11">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="h[ZAz;9nQ)_@kD)(|5aO">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="fiE:,s[*P]^;4H#J(N2g">
+<field name="VAR" id="GmD{:sA3zz#G1OHy5QNu">forwardpower</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="M!d,3Y@h0H$i0$~Lx4-t">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="DZJy](QB;J@@q}.lp3fk">
+<field name="VAR" id="eypF,4~hcuC2(L$t@95K">turnpower</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="-Bp)_J,IEen=/Vt!tOnp">
+<field name="VAR" id=")rHRu=}P,cEJh1,^5~h.">rightpower</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="I)tG?6{74.h{+j$R5h.i">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="2+%_nw$_^OU[fE;oP=-K">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="%(QO{BZ#`:H=0?w`ryPw">
+<field name="VAR" id="GmD{:sA3zz#G1OHy5QNu">forwardpower</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="d^!N7}3yY[K#VrS$p)i6">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="%#$9g;?TI!,01,.3RP;o">
+<field name="VAR" id="eypF,4~hcuC2(L$t@95K">turnpower</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="q_w5P}f;5tid%Gx~S@x@">
+<field name="IDENTIFIER">left_motorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="_nJqVWp2~[/E;P!Hhp1,">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="uzp=Uc?L[2z5owGaWsF2">
+<field name="IDENTIFIER">left_motorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Ozcy)H:z!/rqmQ}ODh,X">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="}hGTT~ArwnO9Sz4*uIQm">
+<field name="VAR" id="-YT1.V~0oUZK7m$]c09#">leftpower</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="t2~O8({N:||[=t8NOS.3">
+<field name="IDENTIFIER">right_motorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"right_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="!C:B;[GzJW^/g8Wh5^pi">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="o^)Y)U_PS,*5yrYHZ}8b">
+<field name="IDENTIFIER">right_motorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="ic8Vi2A/fNI^M@Qb[%Bv">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="(hGfI{|_2@sgG9.x96)M">
+<field name="VAR" id=")rHRu=}P,cEJh1,^5~h.">rightpower</field>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>

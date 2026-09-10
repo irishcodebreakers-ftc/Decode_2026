@@ -1,0 +1,133 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="8[marDy{3OH%M+ftcVX%">diamater</variable>
+<variable id="dI;DosIBzKLes#Nt%V;L">circonfrince</variable>
+<variable id="{B(7llO4I?ZFSd~C^$}a">target angle</variable>
+<variable id="/twy/+Yqdl5j_mu(d:/R">rotations</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="25" y="169">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="variables_set" id="8G.-b+RxChI[sJDc7;_4">
+<field name="VAR" id="8[marDy{3OH%M+ftcVX%">diamater</field>
+<value name="VALUE">
+<block type="math_number" id="+#~veB5}WbgZny!b1WwL">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="f~!*U=q%2(iQ@fGGpZh;">
+<field name="VAR" id="dI;DosIBzKLes#Nt%V;L">circonfrince</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="[[uKAx.)$Li@pFs{=/j^">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="qSCps3VWOSsE4}NPlqBX">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="oVI~?+l3j$W9)fWAPbtG">
+<field name="VAR" id="8[marDy{3OH%M+ftcVX%">diamater</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="bU_):H*Zl+7h6]:H9e0*">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_constant" id="ERy*J}d8Yff^nvm/Qehf">
+<field name="CONSTANT">PI</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="rdyKcs2]gKaJ:}li|67}">
+<field name="VAR" id="{B(7llO4I?ZFSd~C^$}a">target angle</field>
+<value name="VALUE">
+<block type="math_number" id="esJ#CGuSUM^I$v*hc@2A">
+<field name="NUM">-1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="=p?2BMKkoB0$UcMrLOCg">
+<field name="VAR" id="/twy/+Yqdl5j_mu(d:/R">rotations</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="z88-;QU+8pq!D8bRF+pq">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number" id="84;#LuY@s9l}M.#Lj#CZ">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="A6vR]bxms]DV)4i_vD4l">
+<field name="VAR" id="dI;DosIBzKLes#Nt%V;L">circonfrince</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="ot~}[wj!t2l@9+VY3qWY">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="math_change" id="poco[]J@QP?0V4Gi/5i%">
+<field name="VAR" id="/twy/+Yqdl5j_mu(d:/R">rotations</field>
+<value name="DELTA">
+<shadow type="math_number" id="x@%lwG0q7~~E?3CWRgYC">
+<field name="NUM">100</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml><?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Extra><OpModeMeta flavor="TELEOP" group="" /><Enabled value="false" /></Extra>
